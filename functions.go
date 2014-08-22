@@ -26,6 +26,21 @@ func main() {
 	nums := []int{1, 3, 4, 5, 6}
 	sum(nums...)
 
+	//defer 后进先出,a c b
+	//fmt.Println("a")
+	//defer fmt.Println("b")
+	//defer fmt.Println("c")
+
+	//for i := 0; i < 3; i++ {
+	//	defer fmt.Println(i)
+	//}
+	//210
+	for i := 0; i < 3; i++ {
+		defer func() {
+			fmt.Println(i)
+		}()
+	}
+	//333
 }
 
 func sum(nums ...int) {
