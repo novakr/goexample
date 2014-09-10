@@ -2,21 +2,20 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 )
 
 func main() {
-	c := make(chan bool)
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	c := make(chan bool, 10)
 
 	for i := 0; i < 10; i++ {
 		go GO(c, i)
 	}
-	<-c
 
-	a := 1
-	for i := 0; i < 100000000; i++ {
-		a += i
+	for i := 0; i < 10; i++ {
+		<-c
 	}
-	fmt.Println(a)
 }
 
 func GO(c chan bool, index int) {
@@ -26,7 +25,7 @@ func GO(c chan bool, index int) {
 	}
 	fmt.Println(index, a)
 
-	if index == 9 {
-		c <- true
-	}
+	//if index == 9 {
+	c <- true
+	//}
 }
