@@ -19,12 +19,16 @@ func main() {
 		c2 <- "two"
 	}()
 
-	for i := 0; i < 2; i++ {
+	for i := 0; i < 4; i++ {
 		select {
 		case msg1 := <-c1:
 			fmt.Println("received", msg1)
 		case msg2 := <-c2:
 			fmt.Println("received", msg2)
+		case <-time.After(1 * time.Second):
+			fmt.Println("time out")
+			//default:
+			//	fmt.Println("no received")
 		}
 	}
 }
