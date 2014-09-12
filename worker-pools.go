@@ -21,6 +21,7 @@ func main() {
 		go worker(w, jobs, results)
 	}
 	for j := 1; j <= 9; j++ {
+		//time.Sleep(time.Second * 2)
 		jobs <- j
 	}
 	close(jobs)
