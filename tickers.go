@@ -17,4 +17,5 @@ func main() {
 	ticker.Stop()
 
 	fmt.Println("Ticker stopped")
+
 }
