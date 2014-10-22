@@ -20,7 +20,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	log.Println("[Requst Cookies]:", r.Cookies())
 
 	if "www.baidu.com" == r.Host {
-		http.Redirect(w, r, "/www.google.com", http.StatusFound)
+		http.Redirect(w, r, "http://www.kmeizi.com", http.StatusFound)
 	}
 
 	//resp, err := http.DefaultClient.Do(r)
