@@ -13,7 +13,7 @@ func main() {
 			fmt.Println("Tick at", t)
 		}
 	}()
-	time.Sleep(time.Millisecond * 1500)
+	time.Sleep(time.Millisecond * 2500)
 	ticker.Stop()
 
 	fmt.Println("Ticker stopped")
